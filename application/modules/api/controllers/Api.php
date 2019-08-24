@@ -35,6 +35,18 @@ class Api extends MX_Controller {
 	//Api post data function
 	public function awamo_mathjs_api_post($num1=false, $num2=false, $opr=false){
 
+		//obtain an expression from post data
+		$expr = $num1 .$opr. $num2;
+		
+		//have data into array, 
+		$post_request_data= array("expr"=> $expr);
+
+		//then into json object
+		$final_post_data=json_encode($post_request_data);
+
+
+		//the resource: api url
+		$resource_Url = $this->API_URL;
 
 	}
 
