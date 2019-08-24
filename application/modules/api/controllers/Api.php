@@ -10,6 +10,10 @@ class Api extends MX_Controller {
 		$this->load->model('api_mdl');
         $this->module="api";
 
+        //intialize Unit rest Class
+        $this->load->library('unit_test');
+
+
         $this->API_BASE_URL = "http://api.mathjs.org/v4/";
 		
 	}
@@ -124,8 +128,6 @@ class Api extends MX_Controller {
 				$row_color_class = "yellowish";
 			}
 
-
-
 			//final data for the user
 			$final_data['num1'] = $num1;
 			$final_data['num2'] = $num2;
@@ -134,7 +136,9 @@ class Api extends MX_Controller {
 			$final_data['row_color'] = $row_color_class;
 			$final_data['expected'] = $expected_answer;
 
-			
+
+			//my unit testing function
+			$this->run_tests($num1, $num2, $opr);
 
 			return json_encode($final_data);
 			
@@ -152,6 +156,7 @@ class Api extends MX_Controller {
 
 		return $expected_answ;
 	}
+
 
 
 	public function validate_api_results($apianswer){
@@ -175,6 +180,28 @@ class Api extends MX_Controller {
 
 		//return same answe
 		return $apianswer;
+	}
+
+
+
+	public function run_tests($num1, $num2, $opr){
+
+		//string evaluation Class
+		include_once('libs/EvalMath.php'); 
+
+        $evalmath = new EvalMath();
+		
+		$test = $num1.$opr.$num2;
+
+		$result = $evalmath->evaluate($test);
+
+		$expected_result = $result;
+
+		$test_name = 'Get the result of and expression of and operand, and two numbers';
+
+		$my_test = $this->unit->run($test, $expected_result, $test_name);
+
+		return $my_test;
 	}
 
 
