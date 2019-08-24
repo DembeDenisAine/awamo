@@ -8,7 +8,7 @@
 <!----------------body conntent ----------------------->
 <div class="left-side-wrapper">
 
-	 <section class="form-content" style="color: #ffff;">
+	 <section class="form-content">
 		<?php  
 
 			//----------------form -------------->
