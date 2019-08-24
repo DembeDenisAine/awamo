@@ -168,6 +168,10 @@ th {
   color: #eba134;
 }
 
+.table tr {
+  border-bottom: 1px #000 solid;
+  border-color: #333;
+}
 
 /*------Component: Form -------------*/
 .form-group {
@@ -253,6 +257,7 @@ select{
 
 .delete{
   color: red;
+  cursor: pointer;
 }
 
 

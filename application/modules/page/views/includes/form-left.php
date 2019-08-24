@@ -62,7 +62,7 @@
 
             console.log("ANSWER "+res.result);
 
-            var newrow='<tr class="greyrow"><td>'+res.num1+'</td><td>'+res.num2+'</td><td>'+res.answer+'</td><td></td> <td></td><td class="delete btn"><i class="fa fa-remove"></i></td></tr>';
+            var newrow='<tr class="greyrow"><td>'+res.num1+'</td><td>'+res.num2+'</td><td>'+res.answer+'</td><td></td> <td></td><td class="delete  delete_row"><i class="fa fa-remove"></i></td></tr>';
 
             $('.mydata_table').append(newrow);
             
