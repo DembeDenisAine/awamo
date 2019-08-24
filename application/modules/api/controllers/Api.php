@@ -10,6 +10,8 @@ class Api extends MX_Controller {
 		$this->load->model('api_mdl');
         $this->module="api";
 
+        
+        
         $this->API_BASE_URL = "http://api.mathjs.org/v4/";
 		
 	}
@@ -21,21 +23,23 @@ class Api extends MX_Controller {
 
 		//print_r($data);
 
-		//assign variables to each of the post data
-		$num1 = $post_data['num1'];
-		$num2 = $post_data['num2'];
-		$opr = $post_data['operand'];
-
-
+	
 		//send data to api_post function
-		$this->awamo_mathjs_api_post($num1, $num2, $opr);
+		$finalResponse=$this->awamo_mathjs_api_post($post_data);
+
+		echo $finalResponse;
 
 	 }
 
 
 
 	//function to recive the POST data from the form
-	public function awamo_mathjs_api_post($num1=false, $num2=false, $opr=false){
+	public function awamo_mathjs_api_post($post_data){
+
+	   //assign variables to each of the post data
+		$num1 = $post_data['num1'];
+		$num2 = $post_data['num2'];
+		$opr = $post_data['operand'];
 
 		//obtain an expression from post data
 		$expr = $num1 .$opr. $num2;
@@ -104,16 +108,72 @@ class Api extends MX_Controller {
 
 			$response=json_decode($result);
 
-			$answer=$response->result;
+			$apianswer=$response->result;
 
-			$result_one['answer']=$answer;
+		    $expected_answer=$this->perform_computation($num1, $num2, $opr);
 
-			echo json_encode($result_one);
+
+			$final_answer= $this->validate_api_results($apianswer);
+
+
+			$status = "NO"; //default value for a Pass
+
+			if ($final_answer == $expected_answer){
+				
+				$status = "YES"; //answer meets the expected
+			}
+
+
+			//final data for the user
+
+			$final_data['num1'] = $num1;
+			$final_data['num2'] = $num2;
+			$final_data['passed'] = $status;
+			$final_data['response'] = $final_answer;
+			$final_data['expected'] = $expected_answer;
 			
 
 
+			return json_encode($final_data);
+			
 	}
 
+
+	public function perform_computation($num1, $num2, $opr){
+
+		//string evaluation Class
+		include_once('libs/EvalMath.php'); 
+
+        $evalmath = new EvalMath();
+		
+		$expected_answ = $evalmath->evaluate($num1.$opr.$num2);
+
+		return $expected_answ;
+	}
+
+
+	public function validate_api_results($apianswer){
+
+		//generate a rondom Number
+		$generated_roundomNo = mt_rand();
+
+		//roud off the generated Number
+		$roundOff = round($generated_roundomNo);
+
+		if($roundOff == 1){
+			
+			$new_rondomNo = mt_rand(); 
+
+			$new_answer = ceil($new_rondomNo * 4000);
+
+			// overide answer
+			return $new_answer;
+
+		}
+
+		//return same answe
+		return $apianswer;
+	}
 
 
 }
