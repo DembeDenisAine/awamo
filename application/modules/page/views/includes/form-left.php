@@ -1,5 +1,5 @@
   
-  <form  id="form_data" method="post" action="">
+  <form  id="form_data" >
 
       <h2>Numbers</h2>
       <div class="form-group">
@@ -26,3 +26,40 @@
     
      <button class="form-control" type="submit"> Post </button> 
   </form>
+
+<script type="text/javascript">
+
+    $('#form_data').submit(function(e){
+
+        //prevent the any defaults -of a page from reloading
+        e.preventDefault();
+
+        //handle submition. Ensuring that both feilds are entered with numbers
+         if($('#num1').val()=='' || $('#num2').val()==''){
+
+            alert("Fill data");
+            return false;
+        }
+
+
+     var formData=$(this).serialize();
+     console.log(formData);
+
+                //URL where to post the form data
+     var url = "<?php echo base_url();?>api/get_post_data";
+
+     $.ajax({
+        url: url,
+        method:'post',
+        data:formData,
+        success: function(result){
+
+            console.log(result);
+            
+        }
+
+    });
+
+
+    });
+</script>

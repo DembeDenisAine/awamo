@@ -13,5 +13,12 @@ class Api extends MX_Controller {
 		
 	}
 
+	//get the form post data function
+	public function get_post_data(){
+		$post_data = $this->input->post();
+
+		//print_r($post_data);
+		return $post_data;
+	}
 
 }
