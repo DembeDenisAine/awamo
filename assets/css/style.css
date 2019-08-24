@@ -1,0 +1,249 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic);
+
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+
+  font-size: 10px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+td,
+th {
+  padding: 0;
+}
+
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.skin-dark-blue.wrapper,
+.skin-dark-blue .left-side-wrapper{
+    background-color: #222d32
+}
+
+
+/*------Component: Wrapper -------------*/
+.wrapper {
+  height: 100%;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.wrapper:before,
+.wrapper:after {
+  content: " ";
+  display: table;
+}
+.wrapper:after {
+  clear: both;
+}
+
+/*------ Component: Wrapper; right side wrapper-------*/
+.right-side-wrapper{
+  -webkit-transition: -webkit-transform 0.3s ease-in-out, margin 0.3s ease-in-out;
+  -moz-transition: -moz-transform 0.3s ease-in-out, margin 0.3s ease-in-out;
+  -o-transition: -o-transform 0.3s ease-in-out, margin 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, margin 0.3s ease-in-out;
+  margin-left: 280px;
+  z-index: 820;
+}
+
+
+.right-side-wrapper {
+  min-height: 100%;
+  background-color: #ecf0f5;
+  z-index: 800;
+}
+
+/*------ Component: Wrapper; left side wrapper-------*/
+
+.left-side-wrapper{
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 10px;
+  min-height: 100%;
+  width: 280px;
+  z-index: 810;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out, width 0.3s ease-in-out;
+  -moz-transition: -moz-transform 0.3s ease-in-out, width 0.3s ease-in-out;
+  -o-transition: -o-transform 0.3s ease-in-out, width 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+
+
+/*------Component: Row -------------*/
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+
+/*------Component: Table Content -------------*/
+.table-content {
+  min-height: 250px;
+  padding: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+
+.table-content-header {
+  position: relative;
+  padding: 15px 15px 0 15px;
+}
+.table-content-header > h1 {
+  margin: 0;
+  font-size: 24px;
+  text-align: left;
+}
+
+
+
+/*------Component: Table -------------*/
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+}
+.table > thead > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+}
+
+.table thead{
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+}
+
+.table{
+  text-align: center;
+}
+.table th{
+  text-align: center;
+}
+.table thead{
+  background-color: #222d32; 
+  color: #eba134;
+}
+
+
+/*------Component: Form -------------*/
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label{
+  margin-left: 25px;
+}
+
+.form-control {
+  border-radius: 20px;
+  border: 1px #eba134 solid;
+  background-color: inherit;
+  padding: 5px 17px;
+  display: block;
+  width: 100%;
+  height: 30px;
+  font-size: 12px;
+  color: #eba134;
+}
+
+select{
+  color: #eba134;
+}
+
+.form-control:focus {
+  /*border-color: #eba134;*/
+  box-shadow: none;
+  color: #eba134;
+  background-color: inherit;
+}
+
+.form-control option{
+  background-color: inherit;
+}
+
+
+
+/*------Component: Box -------------*/
+
+.form-content:after{
+  clear: both;
+}
+
+
+.form-content {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  padding: 10px;
+  padding-top: 0px;
+}
+
+.form-content button{
+  background-color: #eba134;
+  border-radius: 20px;
+  text-indent: initial;
+  color: #000;
+}
+.form-content h2{
+  margin-top: -10%
+  margin-left: 15px;
+}
+
+
+
+/*------Component: Button -------------*/
+.btn {
+  border-radius: 3px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 1px solid transparent;
+  color: #000;
+  text-align: center;
+}
+
+.btn:focus {
+  outline: none;
+
+}
+
+
+
+
