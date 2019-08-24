@@ -1,5 +1,6 @@
+
 <!--       style="border-top-left-radius: 10px; border-top-right-radius: 10px;" -->
-  <table class="table table-striped mydatatable" >
+  <table class="table table-striped mydata_table" >
 
     <thead >
       <th>Number 1</th>
@@ -10,7 +11,8 @@
       <th>Remove</th>
     </thead>
 
-    <!-- rows will be append here by jquery---- as response--->
+    <!-- rows are append here by jquery---- On API'z response--->
+
 
   </table>
 

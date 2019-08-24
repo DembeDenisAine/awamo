@@ -1,6 +1,8 @@
   
-  <form  id="form_data" >
+ <!-- =============== FORM ======================= -->
 
+  <form  id="form_data">
+      <span id="msg"></span>
       <h2>Numbers</h2>
       <div class="form-group">
         <label for="Number_One">Number One</label>
@@ -19,34 +21,34 @@
           <option value="-">Subtract</option>
           <option value="/">Devide</option>
           <option value="*">Multiply</option>
-
-          <!-- Operands: + for ADD, - for MINUS, / for Division, * for MULTIPLICATION -->
         </select>
       </div>
     
      <button class="form-control" type="submit"> Post </button> 
   </form>
 
+
+<!-- ===============/end: FORM ======================= -->
 <script type="text/javascript">
 
     $('#form_data').submit(function(e){
+
 
         //prevent the any defaults -of a page from reloading
         e.preventDefault();
 
         //handle submition. Ensuring that both feilds are entered with numbers
-         if($('#num1').val()=='' || $('#num2').val()==''){
+         if($('#num1').val()==''){
 
-            alert("Fill data");
+            alert("Please Enter  Numbers in Both Fields");
             return false;
         }
-
 
      var formData=$(this).serialize();
      console.log(formData);
 
-                //URL where to post the form data
-     var url = "<?php echo base_url();?>api/get_post_data";
+              //POST url
+     var url ="<?php echo base_url();?>api/get_post_data";
 
      $.ajax({
         url: url,
@@ -55,11 +57,20 @@
         success: function(result){
 
             console.log(result);
+
+            var res=JSON.parse(result);
+
+            console.log("ANSWER "+res.result);
+
+            var newrow='<tr class="greyrow"><td>'+res.num1+'</td><td>'+res.num2+'</td><td>'+res.answer+'</td><td></td> <td></td><td class="delete btn"><i class="fa fa-remove"></i></td></tr>';
+
+            $('.mydata_table').append(newrow);
             
         }
 
-    });
+    });//ajax
 
 
-    });
+    }); 
+
 </script>
