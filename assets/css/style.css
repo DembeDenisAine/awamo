@@ -44,7 +44,7 @@ th {
 
 .skin-dark-blue.wrapper,
 .skin-dark-blue .left-side-wrapper{
-    background-color: #222d32
+    background-color: #2a3b42
 }
 
 
@@ -77,12 +77,11 @@ th {
 
 .right-side-wrapper {
   min-height: 100%;
-  background-color: #ecf0f5;
+  background-color: #faf9dc;
   z-index: 800;
 }
 
 /*------ Component: Wrapper; left side wrapper-------*/
-
 .left-side-wrapper{
   position: absolute;
   top: 0;
@@ -146,10 +145,18 @@ th {
 }
 
 
-.table-striped>tbody>tr:nth-of-type(odd) {
+/*.table-striped>tbody>tr:nth-of-type(odd) {
     background-color: #f9f9f9
 }
+*/
 
+.table-striped .yellowish {
+    background-color: #f7ea94;
+}
+
+.table-striped .redish {
+    background-color: #f09884;
+}
 
 
 .table thead{
@@ -164,7 +171,7 @@ th {
   text-align: center;
 }
 .table thead{
-  background-color: #222d32; 
+  background-color: #2a3b42; 
   color: #eba134;
 }
 
@@ -194,24 +201,11 @@ th {
   color: #eba134;
 }
 
-select{
-  color: #eba134;
-}
-
 .form-control:focus {
-  /*border-color: #eba134;*/
   box-shadow: none;
   color: #eba134;
-  background-color: inherit;
+  outline-width: 0;
 }
-
-.form-control option{
-  background-color: inherit;
-}
-
-
-
-/*------Component: Box -------------*/
 
 .form-content:after{
   clear: both;
@@ -228,32 +222,48 @@ select{
 }
 
 .form-content button{
-  background-color: #eba134;
+  background-color: #ad831a;
   border-radius: 20px;
   text-indent: initial;
-  color: #000;
+  color: #2a3b42;
 }
+
 .form-content h2{
   margin-top: -10%
-  margin-left: 15px;
+  margin-left: 25px;
+  margin-bottom: 0;
 }
 
+/*.form-control option{
+  background-color: inherit;
+}*/
 
+select{
+  color: #ad831a;
+}
+
+select option {
+    background-color: #2a3b42;
+    color: #ad831a;
+}
 
 /*------Component: Button -------------*/
 .btn {
   border-radius: 3px;
   -webkit-box-shadow: none;
   box-shadow: none;
-  border: 1px solid transparent;
-  color: #000;
+  border: 1px solid #f7ea94;
+  color: #2a3b42;
   text-align: center;
+  border-radius: 20px;
+  padding: 5px 17px;
+  display: block;
+  width: 100%;
+  height: 30px;
+  font-size: 12px;
+  cursor: pointer;
 }
 
-.btn:focus {
-  outline: none;
-
-}
 
 .delete{
   color: red;

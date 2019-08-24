@@ -24,7 +24,7 @@
         </select>
       </div>
     
-     <button class="form-control" type="submit"> Post </button> 
+     <button class="btn" type="submit"> Post </button> 
   </form>
 
 
@@ -62,7 +62,7 @@
 
             console.log("ANSWER "+res.result);
 
-            var newrow='<tr class="greyrow"><td>'+res.num1+'</td><td>'+res.num2+'</td><td>'+res.response+'</td><td>'+res.expected+'</td> <td>'+res.passed+'</td><td class="delete  delete_row"><i class="fa fa-remove"></i></td></tr>';
+            var newrow='<tr class="'+res.row_color+'"><td>'+res.num1+'</td><td>'+res.num2+'</td><td>'+res.response+'</td><td>'+res.expected+'</td> <td>'+res.passed+'</td><td class="delete  delete_row"><i class="fa fa-remove"></i></td></tr>';
 
             $('.mydata_table').append(newrow);
             

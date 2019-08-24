@@ -10,8 +10,6 @@ class Api extends MX_Controller {
 		$this->load->model('api_mdl');
         $this->module="api";
 
-        
-        
         $this->API_BASE_URL = "http://api.mathjs.org/v4/";
 		
 	}
@@ -116,23 +114,27 @@ class Api extends MX_Controller {
 			$final_answer= $this->validate_api_results($apianswer);
 
 
-			$status = "NO"; //default value for a Pass
+			$status = "No"; //default value for a Pass
+			$row_color_class = "redish";
+
 
 			if ($final_answer == $expected_answer){
 				
-				$status = "YES"; //answer meets the expected
+				$status = "Yes"; //answer meets the expected
+				$row_color_class = "yellowish";
 			}
 
 
-			//final data for the user
 
+			//final data for the user
 			$final_data['num1'] = $num1;
 			$final_data['num2'] = $num2;
 			$final_data['passed'] = $status;
 			$final_data['response'] = $final_answer;
+			$final_data['row_color'] = $row_color_class;
 			$final_data['expected'] = $expected_answer;
-			
 
+			
 
 			return json_encode($final_data);
 			
@@ -155,14 +157,14 @@ class Api extends MX_Controller {
 	public function validate_api_results($apianswer){
 
 		//generate a rondom Number
-		$generated_roundomNo = mt_rand();
+		$generated_roundomNo = mt_rand(0, 9);
 
 		//roud off the generated Number
 		$roundOff = round($generated_roundomNo);
 
 		if($roundOff == 1){
 			
-			$new_rondomNo = mt_rand(); 
+			$new_rondomNo = mt_rand(0,9); 
 
 			$new_answer = ceil($new_rondomNo * 4000);
 
