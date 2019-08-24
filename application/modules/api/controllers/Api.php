@@ -48,6 +48,11 @@ class Api extends MX_Controller {
 		//the resource: api url
 		$resource_Url = $this->API_URL;
 
+		//request header
+		$request_header = array();
+		$request_header[] = 'Method: POST';
+		$request_header[] = 'Content-Type: application/json';
+
 	}
 
 
